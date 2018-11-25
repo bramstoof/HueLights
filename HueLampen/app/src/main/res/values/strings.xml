@@ -1,4 +1,14 @@
 <resources>
-    <string name="app_name">HueLampen</string>
+    <string name="app_name">HueLamps</string>
     <string name="title_activity_all_lamps">allLamps</string>
+    <string name="Brightness">Brightness</string>
+    <string name="Saturation">Saturation</string>
+    <string name="HueColor">Hue color</string>
+    <string name="Back">Back</string>
+    <string name="Change">Change</string>
+    <string name="All">All lamps</string>
+    <string name="LampID" translatable="false">Lamp ID</string>
+    <string name="Lamp" translatable="false">Lamp</string>
+    <string name="Lampnr">Lamp number:</string>
+    <string name="Status">Status:</string>
 </resources>
