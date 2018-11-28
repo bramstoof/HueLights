@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorGreen"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".allLamps"
     tools:showIn="@layout/activity_all_lamps">
@@ -29,7 +28,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
-                android:text="@string/Brightness"
+                android:text="Bri:"
                 android:textSize="24sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/all_bri_value" />
@@ -64,7 +63,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:background="@android:color/white"
-                android:text="@string/Change"
+                android:text="change"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.51"
                 app:layout_constraintStart_toStartOf="parent"
@@ -119,7 +118,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="@string/Saturation"
+                android:text="Sat:"
                 android:textSize="24sp"
                 app:layout_constraintStart_toStartOf="@+id/Hue"
                 app:layout_constraintTop_toBottomOf="@+id/all_sat_value" />
@@ -139,7 +138,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="@string/HueColor"
+                android:text=" Hue:"
                 android:textSize="24sp"
                 app:layout_constraintStart_toStartOf="@+id/textView4"
                 app:layout_constraintTop_toBottomOf="@+id/all_hue_value" />
@@ -148,7 +147,7 @@
                 android:id="@+id/all_back"
                 android:layout_width="72dp"
                 android:layout_height="38dp"
-                android:text="@string/Back"
+                android:text="back"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 

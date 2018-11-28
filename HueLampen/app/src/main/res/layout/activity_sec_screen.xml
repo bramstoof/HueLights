@@ -26,7 +26,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
-                android:text="@string/Brightness"
+                android:text="Bri:"
                 android:textSize="24sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/sec_bri_value" />
@@ -64,12 +64,14 @@
 
             <Button
                 android:id="@+id/sec_button_change"
-                android:layout_width="297dp"
-                android:layout_height="35dp"
-                android:layout_marginStart="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                android:background="@color/colorPrimaryDark"
-                android:text="@string/Change"
+                android:layout_marginEnd="8dp"
+                android:background="@android:color/white"
+                android:text="change"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
@@ -121,7 +123,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="@string/Saturation"
+                android:text="Sat:"
                 android:textSize="24sp"
                 app:layout_constraintStart_toStartOf="@+id/Hue"
                 app:layout_constraintTop_toBottomOf="@+id/sec_sat_value" />
@@ -142,7 +144,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
-                android:text="@string/LampID"
+                android:text="ID:"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
@@ -153,7 +155,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="@string/HueColor"
+                android:text=" Hue:"
                 android:textSize="24sp"
                 app:layout_constraintStart_toStartOf="@+id/textView4"
                 app:layout_constraintTop_toBottomOf="@+id/sec_hue_value" />
@@ -162,21 +164,9 @@
                 android:id="@+id/all_back"
                 android:layout_width="72dp"
                 android:layout_height="38dp"
-                android:layout_marginStart="4dp"
-                android:layout_marginTop="4dp"
-                android:background="@color/colorPrimaryDark"
-                android:text="@string/Back"
+                android:text="back"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageView
-                android:id="@+id/ColorImage"
-                android:layout_width="38dp"
-                android:layout_height="31dp"
-                android:layout_marginStart="16dp"
-                app:layout_constraintStart_toEndOf="@+id/sec_button_change"
-                app:layout_constraintTop_toTopOf="@+id/sec_button_change"
-                app:srcCompat="@android:drawable/presence_invisible" />
 
         </android.support.constraint.ConstraintLayout>
     </ScrollView>

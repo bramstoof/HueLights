@@ -7,7 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -35,11 +34,10 @@ public class SecScreen extends AppCompatActivity {
             final TextView briValue = findViewById(R.id.sec_bri_value);
             final Button change = findViewById(R.id.sec_button_change);
             Button back = findViewById(R.id.all_back);
-            final ImageView colorImage = findViewById(R.id.ColorImage);
 
 
 
-            colorImage.setColorFilter(hue.getColor());
+            change.setBackgroundColor(hue.getColor());
 
             hueValue.setText(Integer.toString(hue.getHue()));
             briValue.setText(Integer.toString(hue.getBri()));
@@ -52,7 +50,7 @@ public class SecScreen extends AppCompatActivity {
                 @Override
                 public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
                     hueValue.setText(Integer.toString(seekBar.getProgress()));
-                    colorImage.setColorFilter(hue.getColor(Float.valueOf(hueValue.getText().toString()),
+                    change.setBackgroundColor(hue.getColor(Float.valueOf(hueValue.getText().toString()),
                             Float.valueOf(satValue.getText().toString()),Float.valueOf(briValue.getText().toString())));
                 }
 
@@ -71,8 +69,12 @@ public class SecScreen extends AppCompatActivity {
                 @Override
                 public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
                     briValue.setText(Integer.toString(briBar.getProgress()));
-                    colorImage.setColorFilter(hue.getColor(Float.valueOf(hueValue.getText().toString()),
+                    change.setBackgroundColor(hue.getColor(Float.valueOf(hueValue.getText().toString()),
                             Float.valueOf(satValue.getText().toString()),Float.valueOf(briValue.getText().toString())));
+                if(briBar.getProgress() < 100)
+                    change.setTextColor(Color.WHITE);
+                else
+                    change.setTextColor(Color.BLACK);
                 }
 
                 @Override
@@ -90,7 +92,7 @@ public class SecScreen extends AppCompatActivity {
                 @Override
                 public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
                     satValue.setText(Integer.toString(satBar.getProgress()));
-                    colorImage.setColorFilter(hue.getColor(Float.valueOf(hueValue.getText().toString()),
+                    change.setBackgroundColor(hue.getColor(Float.valueOf(hueValue.getText().toString()),
                             Float.valueOf(satValue.getText().toString()),Float.valueOf(briValue.getText().toString())));
                 }
 
