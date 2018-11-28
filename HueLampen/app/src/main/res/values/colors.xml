@@ -4,5 +4,6 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="colorRed">#D81B60</color>
-    <color name="colorGreen">#777777</color>
+    <color name="GreyBackGround">#777777</color>
+    <color name="LightGreyButtons">#999999</color>
 </resources>

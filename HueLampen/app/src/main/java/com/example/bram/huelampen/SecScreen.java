@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -33,6 +34,7 @@ public class SecScreen extends AppCompatActivity {
             final SeekBar briBar = findViewById(R.id.sec_bar_bri);
             final TextView briValue = findViewById(R.id.sec_bri_value);
             final Button change = findViewById(R.id.sec_button_change);
+            final ImageView ColorImageButton = findViewById(R.id.ColorImage);
             Button back = findViewById(R.id.all_back);
 
 

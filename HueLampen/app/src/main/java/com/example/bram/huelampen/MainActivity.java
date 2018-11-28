@@ -38,8 +38,20 @@ public class MainActivity extends AppCompatActivity {
         Button sinc = findViewById(R.id.main_sinc);
         Button all = findViewById(R.id.main_all);
 
+        //Als je de lampen wilt aansturen:
+
+        //eerst hier een request runnen, met het IP en Poortnummer wat je gebruikt
+        //request = new VolleyRequest(this,"192.168.0.101:81", (RecyclerView) findViewById(R.id.RecyclerView_MainScreen));
+
+        //Daarna request commenten en deze koppeling runnen met de verkregen Username
+        //koppeling = new Koppeling("192.168.0.101:81","8bc335a578e0e03325016a5432817f9");
+
+
        // koppeling = new Koppeling("145.49.8.37:81","nZdLAHVHpjJZDa3X4dpxFhZDncgsC-MPJf8TtJGu");
-        koppeling = new Koppeling("192.168.0.103", "nZdLAHVHpjJZDa3X4dpxFhZDncgsC-MPJf8TtJGu" );
+        koppeling = new Koppeling("192.168.0.101:81","8bc335a578e0e03325016a5432817f9"); //Thuis Timo
+        //koppeling = new Koppeling("192.168.0.103", "nZdLAHVHpjJZDa3X4dpxFhZDncgsC-MPJf8TtJGu" );
+
+        //request = new VolleyRequest(this,"192.168.0.101:81", (RecyclerView) findViewById(R.id.RecyclerView_MainScreen));
         request = new VolleyRequest(koppeling, this, (RecyclerView) findViewById(R.id.RecyclerView_MainScreen));
         request.getLampsRequest();
         //request = new VolleyRequest(koppeling,this);
