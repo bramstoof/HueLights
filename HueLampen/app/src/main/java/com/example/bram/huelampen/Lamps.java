@@ -3,10 +3,12 @@ package com.example.bram.huelampen;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -32,11 +34,12 @@ public class Lamps extends AppCompatActivity {
             final SeekBar briBar = findViewById(R.id.seekBar_bir);
             final TextView briValue = findViewById(R.id.all_bri_value);
             final Button change = findViewById(R.id.all_change);
-            Button back = findViewById(R.id.all_back);
+            final ImageView imageColorChanger = findViewById(R.id.all_Color_Image);
+            final Button back = findViewById(R.id.all_back);
 
 
 
-            change.setBackgroundColor(Color.RED);
+            imageColorChanger.setColorFilter(Color.RED);
 
             hueValue.setText("65535");
             briValue.setText("254");
@@ -49,7 +52,7 @@ public class Lamps extends AppCompatActivity {
                 @Override
                 public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
                     hueValue.setText(Integer.toString(seekBar.getProgress()));
-                    change.setBackgroundColor(huelist.get(1).getColor(Float.valueOf(hueValue.getText().toString()),
+                    imageColorChanger.setColorFilter(huelist.get(1).getColor(Float.valueOf(hueValue.getText().toString()),
                             Float.valueOf(satValue.getText().toString()),Float.valueOf(briValue.getText().toString())));
                 }
 
@@ -68,12 +71,8 @@ public class Lamps extends AppCompatActivity {
                 @Override
                 public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
                     briValue.setText(Integer.toString(briBar.getProgress()));
-                    change.setBackgroundColor(huelist.get(1).getColor(Float.valueOf(hueValue.getText().toString()),
+                    imageColorChanger.setColorFilter(huelist.get(1).getColor(Float.valueOf(hueValue.getText().toString()),
                             Float.valueOf(satValue.getText().toString()),Float.valueOf(briValue.getText().toString())));
-                    if(briBar.getProgress() < 100)
-                        change.setTextColor(Color.WHITE);
-                    else
-                        change.setTextColor(Color.BLACK);
                 }
 
                 @Override
@@ -91,7 +90,7 @@ public class Lamps extends AppCompatActivity {
                 @Override
                 public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
                     satValue.setText(Integer.toString(satBar.getProgress()));
-                    change.setBackgroundColor(huelist.get(1).getColor(Float.valueOf(hueValue.getText().toString()),
+                    imageColorChanger.setColorFilter(huelist.get(1).getColor(Float.valueOf(hueValue.getText().toString()),
                             Float.valueOf(satValue.getText().toString()),Float.valueOf(briValue.getText().toString())));
                 }
 
