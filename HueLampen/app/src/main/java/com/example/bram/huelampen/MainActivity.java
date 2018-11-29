@@ -8,6 +8,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 
+import java.util.Locale;
+
 public class MainActivity extends AppCompatActivity {
 
 
@@ -21,6 +23,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Button sinc = findViewById(R.id.main_sinc);
         Button changeAllLamps = findViewById(R.id.main_all);
+        Button settings = findViewById(R.id.main_settings);
+        SettingsInfo info = new SettingsInfo(this);
+        Locale.setDefault(new Locale(info.loadLangwitch()));
 
         //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-
         //Als je de lampen wilt aansturen:
@@ -57,6 +62,15 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(context, AllHueLamps.class);
                 intent.putExtra("lamps", request.getHueList());
                 intent.putExtra("koppel", koppeling);
+                context.startActivity(intent);
+            }
+        });
+
+        settings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Context context = getBaseContext();
+                Intent intent = new Intent(context,Settings.class);
                 context.startActivity(intent);
             }
         });

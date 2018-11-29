@@ -21,7 +21,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".OneHueLamp" />
-        <activity android:name=".AllHueLamps"></activity>
+        <activity android:name=".AllHueLamps" />
+        <activity android:name=".Settings"></activity>
     </application>
 
 </manifest>
