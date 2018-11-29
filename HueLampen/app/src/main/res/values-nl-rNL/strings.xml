@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">HueLampen</string>
+    <string name="title_activity_all_lamps">alleLampen</string>
+    <string name="change_all_lamps">Verander Alle Lampen</string>
+</resources>
