@@ -2,13 +2,12 @@ package com.example.bram.huelampen;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
-
-import java.util.Locale;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,9 +24,17 @@ public class MainActivity extends AppCompatActivity {
         Button changeAllLamps = findViewById(R.id.main_all);
         Button settings = findViewById(R.id.main_settings);
         SettingsInfo info = new SettingsInfo(this);
-        Locale.setDefault(new Locale(info.loadLangwitch()));
-        String lang = Locale.getDefault().getLanguage();
-        changeAllLamps.setText(R.string.change_all_lamps);
+        String ip = info.loadLocationIP();
+        String user = info.loadLocationName();
+        if(ip=="" || user == ""){
+            Toast.makeText(this, "Go to Settings To set Lamp", Toast.LENGTH_SHORT).show();
+        }else {
+            koppeling = new Koppeling(ip, user);
+            request = new VolleyRequest(koppeling, this, (RecyclerView) findViewById(R.id.RecyclerView_MainScreen));
+            request.getLampsRequest();
+        }
+
+
         //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-
         //Als je de lampen wilt aansturen:
 
@@ -43,11 +50,11 @@ public class MainActivity extends AppCompatActivity {
 
 
         //koppeling = new Koppeling("192.168.0.101:81","8bc335a578e0e03325016a5432817f9"); //Thuis Timo
-        koppeling = new Koppeling("192.168.0.103", "nZdLAHVHpjJZDa3X4dpxFhZDncgsC-MPJf8TtJGu" );
+        //koppeling = new Koppeling("192.168.0.103", "nZdLAHVHpjJZDa3X4dpxFhZDncgsC-MPJf8TtJGu" );
 
         //request = new VolleyRequest(this,"192.168.0.101:81", (RecyclerView) findViewById(R.id.RecyclerView_MainScreen));
-        request = new VolleyRequest(koppeling, this, (RecyclerView) findViewById(R.id.RecyclerView_MainScreen));
-        request.getLampsRequest();
+        //request = new VolleyRequest(koppeling, this, (RecyclerView) findViewById(R.id.RecyclerView_MainScreen));
+        //request.getLampsRequest();
         //request = new VolleyRequest(koppeling,this);
         sinc.setOnClickListener(new View.OnClickListener() {
             @Override

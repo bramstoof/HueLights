@@ -110,10 +110,12 @@ public class OneHueLamp extends AppCompatActivity {
 
             if(hue.isHueIsOn()){
                 statusOnOff.setText("ON");
+                lampSwitch.setChecked(true);
                 lampStatusColor.setBackgroundColor(Color.GREEN);
             }
             else {
                 statusOnOff.setText("OFF");
+                lampSwitch.setChecked(false);
                 lampStatusColor.setBackgroundColor(Color.RED);
             }
             lampIdValue.setText(Integer.toString(hue.getId()));
@@ -135,6 +137,8 @@ public class OneHueLamp extends AppCompatActivity {
 
                 }
             });
+
+
             lampSwitch.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -152,9 +156,7 @@ public class OneHueLamp extends AppCompatActivity {
                     }
                 }
             });
-
         }
-
     }
 
     @Override

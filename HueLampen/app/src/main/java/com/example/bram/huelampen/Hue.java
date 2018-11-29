@@ -6,13 +6,17 @@ import java.io.Serializable;
 
 public class Hue implements Serializable {
     private int hueID;
+    private String name;
+    private String type;
     private boolean hueIsOn;
     private int hueBrightness;
     private int hueColorNumber;
     private int hueSaturation;
 
-    public Hue(int id, boolean hueIsOn, int hueBrightness, int hueColorNumber, int hueSaturation) {
+    public Hue(int id, String name,String type, boolean hueIsOn, int hueBrightness, int hueColorNumber, int hueSaturation) {
         this.hueID = id;
+        this.name = name;
+        this.type = type;
         this.hueIsOn = hueIsOn;
         this.hueBrightness = hueBrightness;
         this.hueColorNumber = hueColorNumber;
@@ -34,8 +38,24 @@ public class Hue implements Serializable {
         return Color.HSVToColor(hsv);
     }
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
     public int getId() {
         return hueID;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public void setId(int id) {

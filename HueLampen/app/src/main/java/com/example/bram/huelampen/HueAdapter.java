@@ -45,8 +45,9 @@ public class HueAdapter extends RecyclerView.Adapter<HueAdapter.Viewholder>{
     public void onBindViewHolder(Viewholder viewholder, final int i){
         Log.d(TAG, "onBlindViewHolder: called.");
         Hue hueLamp = allHueLamps.get(i);
-        viewholder.ID.setText(Integer.toString(hueLamp.getId()));
+        viewholder.name.setText(hueLamp.getName());
         viewholder.LampColorImage.setColorFilter(hueLamp.getHueColor());
+        viewholder.type.setText(hueLamp.getType());
         if(hueLamp.isHueIsOn())
             viewholder.state.setText("ON");
         else
@@ -59,17 +60,19 @@ public class HueAdapter extends RecyclerView.Adapter<HueAdapter.Viewholder>{
     }
 
     public class Viewholder extends RecyclerView.ViewHolder {
-        TextView ID;
+        TextView name;
         RelativeLayout parentLayout;
         ImageView LampColorImage;
         TextView state;
+        TextView type;
 
         public Viewholder(@NonNull View itemView) {
             super(itemView);
-            ID = itemView.findViewById(R.id.HueLamp_Lamp);
+            name = itemView.findViewById(R.id.HueLamp_Lamp);
             parentLayout = itemView.findViewById(R.id.RecyclerView_MainScreen);
             LampColorImage = itemView.findViewById(R.id.ColorImage);
             state = itemView.findViewById(R.id.hueLamp_state);
+            type = itemView.findViewById(R.id.hueLamp_type);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

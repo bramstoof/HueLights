@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">HueLamps</string>
     <string name="change_all_lamps">" Changer toutes les lampes"</string>
     <string name="app_name">HueLamps</string>
     <string name="title_activity_all_lamps">toutes les lampes</string>
@@ -15,7 +14,6 @@
     <string name="PortNumber">Numéro de port</string>
     <string name="Connect">Connecter</string>
     <string name="Settings">Paramètres</string>
-    <string name="Location">Langue</string>
     <string name="Language">Langue</string>
     <string name="Location">Endroit</string>
     <string name="Save">Enregistrer</string>

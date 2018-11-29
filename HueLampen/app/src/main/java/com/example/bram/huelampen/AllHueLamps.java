@@ -38,7 +38,7 @@ public class AllHueLamps extends AppCompatActivity {
             final ImageView currentColorImage = findViewById(R.id.allLamps_currentColor_Image);
             final Button backButton = findViewById(R.id.allLamp_back_button);
             final TextView lampStatusOnOff = findViewById(R.id.allLamps_lampStatusOnOff_TextView);
-            final Switch lampStatusSwitch = findViewById(R.id.allLamps_lampStatus_switch);
+            final Switch lampSwitch = findViewById(R.id.allLamps_lampStatus_switch);
 
             currentColorImage.setColorFilter(Color.RED);
             hueColorValue.setText("65535");
@@ -112,11 +112,13 @@ public class AllHueLamps extends AppCompatActivity {
             if(hueLampList.get(0).isHueIsOn())
                 {
                     lampStatusOnOff.setText("ON");
+                    lampSwitch.setChecked(true);
                     lampStatusColor.setBackgroundColor(Color.GREEN);
                 }
             else
                 {
                     lampStatusOnOff.setText("OFF");
+                    lampSwitch.setChecked(false);
                     lampStatusColor.setBackgroundColor(Color.RED);
                 }
 
@@ -142,7 +144,7 @@ public class AllHueLamps extends AppCompatActivity {
 
                 }
             });
-            lampStatusSwitch.setOnClickListener(new View.OnClickListener()
+            lampSwitch.setOnClickListener(new View.OnClickListener()
             {
                 @Override
                 public void onClick(View view)

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.RadioButton;
 
 import java.util.Locale;
@@ -23,10 +24,56 @@ public class Settings extends AppCompatActivity {
         final RadioButton en = findViewById(R.id.set_en);
         final RadioButton de = findViewById(R.id.set_de);
         final RadioButton fr = findViewById(R.id.set_fr);
+        RadioButton bramHome = findViewById(R.id.set_BramHome);
+        RadioButton school = findViewById(R.id.set_school);
+        RadioButton simulation = findViewById(R.id.set_simulation);
+
+
 
         Button save = findViewById(R.id.set_save);
+        final Button setIP = findViewById(R.id.set_New_Location);
 
         info = new SettingsInfo(getBaseContext());
+
+        String ip = info.loadLocationIP();
+
+        if(ip == "192.168.0.103")
+            bramHome.setChecked(true);
+        else if(ip == "145.48.205.33")
+            school.setChecked(true);
+        else if(ip == "192.168.0.101:81")
+            simulation.setChecked(true);
+
+        simulation.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(b){
+                    setIP.setClickable(true);
+                }
+            }
+        });
+
+        bramHome.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(b){
+                    info.saveLocationIP("192.168.0.103");
+                    info.saveLocationName("nZdLAHVHpjJZDa3X4dpxFhZDncgsC-MPJf8TtJGu");
+                    setIP.setClickable(false);
+                }
+            }
+        });
+
+        school.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(b) {
+                    info.saveLocationIP("145.48.205.33");
+                    info.saveLocationName("iYrmsQq1wu5FxF9CPqpJCnm1GpPVylKBWDUsNDhB");
+                    setIP.setClickable(false);
+                }
+            }
+        });
 
         String langwitch = info.loadLangwitch();
 
@@ -45,7 +92,14 @@ public class Settings extends AppCompatActivity {
                 break;
         }
 
-
+        setIP.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Context context = getBaseContext();
+                Intent intent = new Intent(context,activity_connect_to_lamps.class);
+                context.startActivity(intent);
+            }
+        });
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

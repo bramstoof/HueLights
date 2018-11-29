@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -55,7 +56,7 @@ public class VolleyRequest implements  HueAdapter.onItemClickListener{
         StringRequest stringRequest = new StringRequest(Request.Method.PUT, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Log.v("My response:", response.toString());
+                Log.v("My response:", response);
             }
         }, new Response.ErrorListener() {
             @Override
@@ -105,15 +106,6 @@ public class VolleyRequest implements  HueAdapter.onItemClickListener{
         hueLight.setHueSaturation(sat);
     }
 
-
-
-
-
-
-
-
-
-
     private void getUsername(final String ip)
     {
         final String requestBody ="{\"devicetype\":\"MijnApp#BramTimo\"}";
@@ -128,8 +120,12 @@ public class VolleyRequest implements  HueAdapter.onItemClickListener{
                     JSONArray array = new JSONArray(response);
                     JSONObject object = (JSONObject) array.get(0);
                     username = object.getJSONObject("success").getString("username");
+                    SettingsInfo info = new SettingsInfo(context);
+                    info.saveLocationName(username);
+                    Toast.makeText(context, "Username Saved", Toast.LENGTH_SHORT).show();
                 } catch (JSONException e) {
                     e.printStackTrace();
+                    Toast.makeText(context,"verkeerde ip address", Toast.LENGTH_SHORT);
                 }
                 koppeling = new Koppeling(ip,username);
                 getLampsRequest();
@@ -178,7 +174,9 @@ public class VolleyRequest implements  HueAdapter.onItemClickListener{
                             boolean on = hueLampObject.getBoolean("on");
                             int hue = hueLampObject.getInt("hue");
                             int sat = hueLampObject.getInt("sat");
-                            Hue hueLamp = new Hue(i,on,bri,hue,sat);
+                            String name = list.getJSONObject(id).getString("name");
+                            String type = list.getJSONObject(id).getString("type");
+                            Hue hueLamp = new Hue(i,name,type,on,bri,hue,sat);
                             System.out.println(hueLamp);
                             hueList.add(hueLamp);
                         }

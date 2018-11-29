@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="52dp"
+    android:layout_height="90dp"
     android:background="@color/GreyBackGround">
 
     <ImageView
@@ -22,60 +22,61 @@
         app:srcCompat="@color/LightGreyButtons" />
 
     <TextView
-        android:id="@+id/hueLamp_TextView"
-        android:layout_width="52dp"
-        android:layout_height="26dp"
+        android:id="@+id/hueLamp_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="6dp"
+        android:layout_marginTop="8dp"
         android:text="Lamp:"
         android:textColor="@android:color/black"
         android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/HueLamp_Lamp"
         app:layout_constraintStart_toEndOf="@+id/ColorImage"
-        app:layout_constraintTop_toTopOf="@+id/ColorImage" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/HueLamp_Lamp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
         android:text="lampNummer"
         android:textColor="@android:color/black"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/hueLamp_TextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/hueLamp_TextView"
-        app:layout_constraintTop_toTopOf="@+id/hueLamp_TextView"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/hueLamp_type"
+        app:layout_constraintTop_toBottomOf="@+id/hueLamp_type" />
 
     <TextView
         android:id="@+id/hueLamp_state"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:text="ON"
         android:textColor="@android:color/black"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/backgroundImage"
-        app:layout_constraintTop_toTopOf="@+id/backgroundImage" />
+        app:layout_constraintTop_toTopOf="@+id/HueLamp_Lamp" />
 
     <ImageView
         android:id="@+id/ColorImage"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/backgroundImage"
-        app:layout_constraintTop_toTopOf="@+id/backgroundImage"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/presence_invisible" />
 
     <TextView
         android:id="@+id/lampStatus_TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="4dp"
+        android:layout_marginEnd="8dp"
         android:text="@string/Lamps_Status"
         android:textColor="@android:color/black"
         android:textSize="18sp"
