@@ -136,13 +136,22 @@
                 android:id="@+id/set_save"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="32dp"
                 android:background="@color/LightGreyButtons"
                 android:text="Save"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/radioGroup2" />
+
+            <Button
+                android:id="@+id/set_New_Location"
+                android:layout_width="107dp"
+                android:layout_height="41dp"
+                android:layout_marginTop="8dp"
+                android:background="@color/LightGreyButtons"
+                android:text="New Location"
+                app:layout_constraintStart_toStartOf="@+id/radioGroup"
+                app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
         </android.support.constraint.ConstraintLayout>
     </ScrollView>
 </android.support.constraint.ConstraintLayout>

@@ -22,7 +22,8 @@
         </activity>
         <activity android:name=".OneHueLamp" />
         <activity android:name=".AllHueLamps" />
-        <activity android:name=".Settings"></activity>
+        <activity android:name=".Settings" />
+        <activity android:name=".activity_connect_to_lamps"></activity>
     </application>
 
 </manifest>
