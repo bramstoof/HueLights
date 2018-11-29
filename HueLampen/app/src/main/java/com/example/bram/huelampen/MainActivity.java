@@ -38,17 +38,22 @@ public class MainActivity extends AppCompatActivity {
         Button sinc = findViewById(R.id.main_sinc);
         Button all = findViewById(R.id.main_all);
 
+        //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-
         //Als je de lampen wilt aansturen:
 
         //eerst hier een request runnen, met het IP en Poortnummer wat je gebruikt
-        //request = new VolleyRequest(this,"192.168.0.101:81", (RecyclerView) findViewById(R.id.RecyclerView_MainScreen));
+        //request = new VolleyRequest(this,"145.49.26.184:81", (RecyclerView) findViewById(R.id.RecyclerView_MainScreen));
 
         //Daarna request commenten en deze koppeling runnen met de verkregen Username
-        //koppeling = new Koppeling("192.168.0.101:81","8bc335a578e0e03325016a5432817f9");
+        koppeling = new Koppeling("145.49.26.184:81","aee2825c220e9ba41bb86a54cc7e38b");
+        //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+
+        //Deze dingen hieronder allemaal commenten
 
 
        // koppeling = new Koppeling("145.49.8.37:81","nZdLAHVHpjJZDa3X4dpxFhZDncgsC-MPJf8TtJGu");
-        koppeling = new Koppeling("192.168.0.101:81","8bc335a578e0e03325016a5432817f9"); //Thuis Timo
+        //koppeling = new Koppeling("192.168.0.101:81","8bc335a578e0e03325016a5432817f9"); //Thuis Timo
         //koppeling = new Koppeling("192.168.0.103", "nZdLAHVHpjJZDa3X4dpxFhZDncgsC-MPJf8TtJGu" );
 
         //request = new VolleyRequest(this,"192.168.0.101:81", (RecyclerView) findViewById(R.id.RecyclerView_MainScreen));

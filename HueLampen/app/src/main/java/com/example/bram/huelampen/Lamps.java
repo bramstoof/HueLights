@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.SeekBar;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -36,6 +37,8 @@ public class Lamps extends AppCompatActivity {
             final Button change = findViewById(R.id.all_change);
             final ImageView imageColorChanger = findViewById(R.id.all_Color_Image);
             final Button back = findViewById(R.id.all_back);
+            final TextView lampStatusTextView = findViewById(R.id.LampStatusTextView);
+            final Switch lampStatusSwitch = findViewById(R.id.all_lampStatus_Switch);
 
 
 
@@ -110,11 +113,11 @@ public class Lamps extends AppCompatActivity {
             satBar.setProgress(254);
 
             if(huelist.get(0).isOn()){
-                power.setText("ON");
+                lampStatusTextView.setText("ON");
                 power.setBackgroundColor(Color.GREEN);
             }
             else {
-                power.setText("OFF");
+                lampStatusTextView.setText("OFF");
                 power.setBackgroundColor(Color.RED);
             }
 
@@ -136,23 +139,23 @@ public class Lamps extends AppCompatActivity {
 
                 }
             });
-            power.setOnClickListener(new View.OnClickListener() {
+            lampStatusSwitch.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if(power.getText()== "ON"){
+                    if(lampStatusTextView.getText()== "ON"){
                         for(Hue hue : huelist){
                             request.turnLightOff(hue);
                             hue.setOn(false);
 
                         }
-                        power.setText("OFF");
+                        lampStatusTextView.setText("OFF");
                         power.setBackgroundColor(Color.RED);
                     }else {
                         for (Hue hue : huelist) {
                             request.turnLightOn(hue);
                             hue.setOn(true);
                         }
-                        power.setText("ON");
+                        lampStatusTextView.setText("ON");
                         power.setBackgroundColor(Color.GREEN);
                     }
                 }

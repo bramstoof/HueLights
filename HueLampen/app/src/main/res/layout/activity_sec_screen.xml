@@ -64,26 +64,27 @@
 
             <Button
                 android:id="@+id/sec_button_change"
-                android:layout_width="180dp"
+                android:layout_width="0dp"
                 android:layout_height="34dp"
                 android:layout_marginStart="12dp"
                 android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
                 android:background="@color/LightGreyButtons"
                 android:text="change"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/sec_screen_Color_Image"
                 app:layout_constraintTop_toTopOf="@+id/sec_screen_Color_Image" />
 
             <Button
                 android:id="@+id/sec_bPower"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
+                android:layout_width="64dp"
+                android:layout_height="18dp"
+                android:layout_marginEnd="8dp"
                 android:text="Off"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@+id/lamp_Status_ON_OF" />
 
             <TextView
                 android:id="@+id/sec_hue_value"
@@ -99,11 +100,10 @@
                 android:id="@+id/sec_bri_value"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
                 android:text="100"
                 app:layout_constraintEnd_toEndOf="@+id/sec_bar_bri"
                 app:layout_constraintStart_toStartOf="@+id/sec_bar_bri"
-                app:layout_constraintTop_toBottomOf="@+id/sec_bPower" />
+                app:layout_constraintTop_toTopOf="@+id/textView" />
 
             <SeekBar
                 android:id="@+id/sec_bar_bri"
@@ -140,7 +140,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="20dp"
                 android:text="ID:"
                 android:textSize="18sp"
                 android:textStyle="bold"
@@ -158,8 +158,8 @@
 
             <Button
                 android:id="@+id/all_back"
-                android:layout_width="70dp"
-                android:layout_height="28dp"
+                android:layout_width="100dp"
+                android:layout_height="45dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:background="@color/LightGreyButtons"
@@ -175,6 +175,38 @@
                 app:layout_constraintStart_toStartOf="@+id/textView7"
                 app:layout_constraintTop_toBottomOf="@+id/textView7"
                 app:srcCompat="@android:drawable/presence_invisible" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="36dp"
+                android:text="Lamp status:"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toStartOf="@+id/lamp_Status_ON_OF"
+                app:layout_constraintTop_toTopOf="@+id/lamp_Status_ON_OF" />
+
+            <TextView
+                android:id="@+id/lamp_Status_ON_OF"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="20dp"
+                android:text="On"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="@+id/sec_bPower"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Switch
+                android:id="@+id/lamp_switch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="32dp"
+                android:textColorLink="@color/LightGreyButtons"
+                app:layout_constraintEnd_toEndOf="@+id/textView8"
+                app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
         </android.support.constraint.ConstraintLayout>
     </ScrollView>

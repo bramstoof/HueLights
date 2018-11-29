@@ -63,7 +63,6 @@ public class HueAdapter extends RecyclerView.Adapter<HueAdapter.Viewholder>{
     public class Viewholder extends RecyclerView.ViewHolder {
         TextView ID;
         RelativeLayout parentLayout;
-        ImageView backgrount;
         ImageView LampColorImage;
         TextView state;
 

@@ -9,18 +9,16 @@
 
     <Button
         android:id="@+id/all_power"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="64dp"
+        android:layout_height="18dp"
         android:layout_marginEnd="8dp"
-        android:text="Button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/LampStatusTextView" />
 
     <Button
         android:id="@+id/all_back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="45dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:background="@color/LightGreyButtons"
@@ -33,7 +31,6 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView2"
@@ -91,24 +88,16 @@
 
     <Button
         android:id="@+id/all_change"
-        android:layout_width="115dp"
+        android:layout_width="0dp"
         android:layout_height="39dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
         android:background="@color/LightGreyButtons"
         android:text="change"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/all_Color_Image"
         app:layout_constraintTop_toTopOf="@+id/all_Color_Image" />
-
-    <TextView
-        android:id="@+id/all_bri_value"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="@+id/seekBar_bir"
-        app:layout_constraintStart_toStartOf="@+id/seekBar_bir"
-        app:layout_constraintTop_toBottomOf="@+id/all_power" />
 
     <TextView
         android:id="@+id/all_sat_value"
@@ -130,6 +119,16 @@
         app:layout_constraintStart_toStartOf="@+id/seekBar_hue"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
+    <TextView
+        android:id="@+id/all_bri_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="@+id/seekBar_bir"
+        app:layout_constraintStart_toStartOf="@+id/seekBar_bir"
+        app:layout_constraintTop_toBottomOf="@+id/all_back" />
+
     <ImageView
         android:id="@+id/all_Color_Image"
         android:layout_width="50dp"
@@ -139,4 +138,37 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5"
         app:srcCompat="@android:drawable/presence_invisible" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="36dp"
+        android:text="Lamps status:"
+        android:textColor="@android:color/black"
+        android:textColorLink="@color/LightGreyButtons"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/LampStatusTextView"
+        app:layout_constraintTop_toTopOf="@+id/LampStatusTextView" />
+
+    <TextView
+        android:id="@+id/LampStatusTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="20dp"
+        android:text="On"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/all_power"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Switch
+        android:id="@+id/all_lampStatus_Switch"
+        android:layout_width="45dp"
+        android:layout_height="18dp"
+        android:layout_marginEnd="32dp"
+        android:textColorLink="@color/LightGreyButtons"
+        app:layout_constraintEnd_toEndOf="@+id/textView6"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
 </android.support.constraint.ConstraintLayout>
