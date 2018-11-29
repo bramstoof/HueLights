@@ -25,8 +25,7 @@ public class MainActivity extends AppCompatActivity {
         Button changeAllLamps = findViewById(R.id.main_all);
         Button settings = findViewById(R.id.main_settings);
         SettingsInfo info = new SettingsInfo(this);
-        Locale.setDefault(new Locale(info.loadLangwitch()));
-
+        String lang = Locale.getDefault().getLanguage();
         //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-
         //Als je de lampen wilt aansturen:
 
@@ -34,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         //request = new VolleyRequest(this,"192.168.0.101:81", (RecyclerView) findViewById(R.id.RecyclerView_MainScreen));
 
         //Daarna request commenten en deze koppeling runnen met de verkregen Username
-        koppeling = new Koppeling("192.168.0.101:81","137fc4339bbe389ecef320290f783e5");
+        //koppeling = new Koppeling("192.168.0.101:81","137fc4339bbe389ecef320290f783e5");
         //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-
 
 
@@ -43,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
 
        // koppeling = new Koppeling("145.49.8.37:81","nZdLAHVHpjJZDa3X4dpxFhZDncgsC-MPJf8TtJGu");
         //koppeling = new Koppeling("192.168.0.101:81","8bc335a578e0e03325016a5432817f9"); //Thuis Timo
-        //koppeling = new Koppeling("192.168.0.103", "nZdLAHVHpjJZDa3X4dpxFhZDncgsC-MPJf8TtJGu" );
+        koppeling = new Koppeling("192.168.0.103", "nZdLAHVHpjJZDa3X4dpxFhZDncgsC-MPJf8TtJGu" );
 
         //request = new VolleyRequest(this,"192.168.0.101:81", (RecyclerView) findViewById(R.id.RecyclerView_MainScreen));
         request = new VolleyRequest(koppeling, this, (RecyclerView) findViewById(R.id.RecyclerView_MainScreen));

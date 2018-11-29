@@ -2,8 +2,8 @@ package com.example.bram.huelampen;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
@@ -43,14 +43,18 @@ public class Settings extends AppCompatActivity {
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(en.isChecked())
+                if(en.isChecked()) {
                     info.saveLangwitch("en");
-                else if(nl.isChecked())
+                }
+                else if(nl.isChecked()) {
                     info.saveLangwitch("nl");
-                else if(de.isChecked())
+                }
+                else if(de.isChecked()) {
                     info.saveLangwitch("de");
-                else if(fr.isChecked())
+                }
+                else if(fr.isChecked()) {
                     info.saveLangwitch("fr");
+                }
 
                 Context context = getBaseContext();
                 Intent intent = new Intent(context,MainActivity.class);
