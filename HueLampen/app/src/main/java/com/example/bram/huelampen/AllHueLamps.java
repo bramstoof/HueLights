@@ -21,79 +21,37 @@ public class AllHueLamps extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_all_lamps);
         Bundle extras = getIntent().getExtras();
-        if(extras != null) {
-            final ArrayList<Hue> huelist = (ArrayList<Hue>) extras.getSerializable("lamps");
-            Koppeling koppeling = (Koppeling) extras.getSerializable("koppel");
-            final VolleyRequest request = new VolleyRequest(koppeling, this);
 
-            final Button power = findViewById(R.id.allLamps_lampStatusColor);
-            final SeekBar hueBar = findViewById(R.id.allLamps_seekBar_hueLampColor);
-            final TextView hueValue = findViewById(R.id.allLamps_hueColorValue_TextView);
-            final SeekBar satBar = findViewById(R.id.allLamps_seekBar_saturation);
-            final TextView satValue = findViewById(R.id.allLamps_saturationValue_TextView);
-            final SeekBar briBar = findViewById(R.id.allLamps_seekBar_brightness);
-            final TextView briValue = findViewById(R.id.allLamps_brightnessValue_TextView);
-            final Button change = findViewById(R.id.allLamps_ChangeLamp_Button);
-            final ImageView imageColorChanger = findViewById(R.id.allLamps_currentColor_Image);
-            final Button back = findViewById(R.id.allLamp_back_button);
-            final TextView lampStatusTextView = findViewById(R.id.allLamps_lampStatusOnOff_TextView);
+        if(extras != null)
+        {
+            final ArrayList<Hue> hueLampList = (ArrayList<Hue>) extras.getSerializable("lamps");
+            final Koppeling koppeling = (Koppeling) extras.getSerializable("koppel");
+            final VolleyRequest volleyRequest = new VolleyRequest(koppeling, this);
+            final Button lampStatusColor = findViewById(R.id.allLamps_lampStatusColor);
+            final SeekBar hueLampColorSeekBar = findViewById(R.id.allLamps_seekBar_hueLampColor);
+            final TextView hueColorValue = findViewById(R.id.allLamps_hueColorValue_TextView);
+            final SeekBar saturationSeekBar = findViewById(R.id.allLamps_seekBar_saturation);
+            final TextView saturationValue = findViewById(R.id.allLamps_saturationValue_TextView);
+            final SeekBar brightnessSeekBar = findViewById(R.id.allLamps_seekBar_brightness);
+            final TextView brightnessValue = findViewById(R.id.allLamps_brightnessValue_TextView);
+            final Button changeLampButton = findViewById(R.id.allLamps_ChangeLamp_Button);
+            final ImageView currentColorImage = findViewById(R.id.allLamps_currentColor_Image);
+            final Button backButton = findViewById(R.id.allLamp_back_button);
+            final TextView lampStatusOnOff = findViewById(R.id.allLamps_lampStatusOnOff_TextView);
             final Switch lampStatusSwitch = findViewById(R.id.allLamps_lampStatus_switch);
 
+            currentColorImage.setColorFilter(Color.RED);
+            hueColorValue.setText("65535");
+            brightnessValue.setText("254");
+            saturationValue.setText("254");
 
-
-            imageColorChanger.setColorFilter(Color.RED);
-
-            hueValue.setText("65535");
-            briValue.setText("254");
-            satValue.setText("254");
-
-
-
-            hueBar.setMax(65535);
-            hueBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            hueLampColorSeekBar.setMax(65535);
+            hueLampColorSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
                 @Override
                 public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-                    hueValue.setText(Integer.toString(seekBar.getProgress()));
-                    imageColorChanger.setColorFilter(huelist.get(1).getHueColor(Float.valueOf(hueValue.getText().toString()),
-                            Float.valueOf(satValue.getText().toString()),Float.valueOf(briValue.getText().toString())));
-                }
-
-                @Override
-                public void onStartTrackingTouch(SeekBar seekBar) {
-
-                }
-
-                @Override
-                public void onStopTrackingTouch(SeekBar seekBar) {
-
-                }
-            });
-            briBar.setMax(254);
-            briBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-                @Override
-                public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-                    briValue.setText(Integer.toString(briBar.getProgress()));
-                    imageColorChanger.setColorFilter(huelist.get(1).getHueColor(Float.valueOf(hueValue.getText().toString()),
-                            Float.valueOf(satValue.getText().toString()),Float.valueOf(briValue.getText().toString())));
-                }
-
-                @Override
-                public void onStartTrackingTouch(SeekBar seekBar) {
-
-                }
-
-                @Override
-                public void onStopTrackingTouch(SeekBar seekBar) {
-
-                }
-            });
-            satBar.setMax(254);
-            satBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-                @Override
-                public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-                    satValue.setText(Integer.toString(satBar.getProgress()));
-                    imageColorChanger.setColorFilter(huelist.get(1).getHueColor(Float.valueOf(hueValue.getText().toString()),
-                            Float.valueOf(satValue.getText().toString()),Float.valueOf(briValue.getText().toString())));
+                    hueColorValue.setText(Integer.toString(seekBar.getProgress()));
+                    currentColorImage.setColorFilter(hueLampList.get(1).getHueColor(Float.valueOf(hueColorValue.getText().toString()),
+                            Float.valueOf(saturationValue.getText().toString()),Float.valueOf(brightnessValue.getText().toString())));
                 }
 
                 @Override
@@ -107,55 +65,107 @@ public class AllHueLamps extends AppCompatActivity {
                 }
             });
 
-            hueBar.setProgress(65535);
-            briBar.setProgress(254);
-            satBar.setProgress(254);
-
-            if(huelist.get(0).isHueIsOn()){
-                lampStatusTextView.setText("ON");
-                power.setBackgroundColor(Color.GREEN);
-            }
-            else {
-                lampStatusTextView.setText("OFF");
-                power.setBackgroundColor(Color.RED);
-            }
-
-            back.setOnClickListener(new View.OnClickListener() {
+            brightnessSeekBar.setMax(254);
+            brightnessSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
                 @Override
-                public void onClick(View view) {
+                public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+                    brightnessValue.setText(Integer.toString(brightnessSeekBar.getProgress()));
+                    currentColorImage.setColorFilter(hueLampList.get(1).getHueColor(Float.valueOf(hueColorValue.getText().toString()),
+                            Float.valueOf(saturationValue.getText().toString()),Float.valueOf(brightnessValue.getText().toString())));
+                }
+
+                @Override
+                public void onStartTrackingTouch(SeekBar seekBar) {
+
+                }
+
+                @Override
+                public void onStopTrackingTouch(SeekBar seekBar) {
+
+                }
+            });
+
+            saturationSeekBar.setMax(254);
+            saturationSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+                @Override
+                public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+                    saturationValue.setText(Integer.toString(saturationSeekBar.getProgress()));
+                    currentColorImage.setColorFilter(hueLampList.get(1).getHueColor(Float.valueOf(hueColorValue.getText().toString()),
+                            Float.valueOf(saturationValue.getText().toString()),Float.valueOf(brightnessValue.getText().toString())));
+                }
+
+                @Override
+                public void onStartTrackingTouch(SeekBar seekBar) {
+
+                }
+
+                @Override
+                public void onStopTrackingTouch(SeekBar seekBar) {
+
+                }
+            });
+
+            hueLampColorSeekBar.setProgress(65535);
+            brightnessSeekBar.setProgress(254);
+            saturationSeekBar.setProgress(254);
+
+            if(hueLampList.get(0).isHueIsOn())
+                {
+                    lampStatusOnOff.setText("ON");
+                    lampStatusColor.setBackgroundColor(Color.GREEN);
+                }
+            else
+                {
+                    lampStatusOnOff.setText("OFF");
+                    lampStatusColor.setBackgroundColor(Color.RED);
+                }
+
+            backButton.setOnClickListener(new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View view)
+                {
                     Context context = getBaseContext();
                     Intent intent = new Intent(context, MainActivity.class);
                     context.startActivity(intent);
                 }
             });
 
-            change.setOnClickListener(new View.OnClickListener() {
+            changeLampButton.setOnClickListener(new View.OnClickListener()
+            {
                 @Override
-                public void onClick(View view) {
-                    for(Hue hue : huelist)
-                    request.changeColler(hue,Integer.valueOf(briValue.getText().toString()),
-                            Integer.valueOf(satValue.getText().toString()),Integer.valueOf(hueValue.getText().toString()));
+                public void onClick(View view)
+                {
+                    for(Hue hue : hueLampList)
+                    volleyRequest.changeColler(hue,Integer.valueOf(brightnessValue.getText().toString()),
+                            Integer.valueOf(saturationValue.getText().toString()),Integer.valueOf(hueColorValue.getText().toString()));
 
                 }
             });
-            lampStatusSwitch.setOnClickListener(new View.OnClickListener() {
+            lampStatusSwitch.setOnClickListener(new View.OnClickListener()
+            {
                 @Override
-                public void onClick(View view) {
-                    if(lampStatusTextView.getText()== "ON"){
-                        for(Hue hue : huelist){
-                            request.turnLightOff(hue);
+                public void onClick(View view)
+                {
+                    if(lampStatusOnOff.getText()== "ON")
+                    {
+                        for(Hue hue : hueLampList)
+                        {
+                            volleyRequest.turnLightOff(hue);
                             hue.setHueIsOn(false);
-
                         }
-                        lampStatusTextView.setText("OFF");
-                        power.setBackgroundColor(Color.RED);
-                    }else {
-                        for (Hue hue : huelist) {
-                            request.turnLightOn(hue);
+                        lampStatusOnOff.setText("OFF");
+                        lampStatusColor.setBackgroundColor(Color.RED);
+                    }
+                    else
+                        {
+                        for (Hue hue : hueLampList)
+                        {
+                            volleyRequest.turnLightOn(hue);
                             hue.setHueIsOn(true);
                         }
-                        lampStatusTextView.setText("ON");
-                        power.setBackgroundColor(Color.GREEN);
+                        lampStatusOnOff.setText("ON");
+                        lampStatusColor.setBackgroundColor(Color.GREEN);
                     }
                 }
             });
