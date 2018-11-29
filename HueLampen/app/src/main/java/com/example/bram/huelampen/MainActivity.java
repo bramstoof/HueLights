@@ -36,16 +36,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Button sinc = findViewById(R.id.main_sinc);
-        Button all = findViewById(R.id.main_all);
+        Button changeAllLamps = findViewById(R.id.main_all);
 
         //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-
         //Als je de lampen wilt aansturen:
 
         //eerst hier een request runnen, met het IP en Poortnummer wat je gebruikt
-        //request = new VolleyRequest(this,"145.49.26.184:81", (RecyclerView) findViewById(R.id.RecyclerView_MainScreen));
+        //request = new VolleyRequest(this,"192.168.0.101:81", (RecyclerView) findViewById(R.id.RecyclerView_MainScreen));
 
         //Daarna request commenten en deze koppeling runnen met de verkregen Username
-        koppeling = new Koppeling("145.49.26.184:81","aee2825c220e9ba41bb86a54cc7e38b");
+        koppeling = new Koppeling("192.168.0.101:81","137fc4339bbe389ecef320290f783e5");
         //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-
 
 
@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
                 request.getLampsRequest();
             }
         });
-        all.setOnClickListener(new View.OnClickListener() {
+        changeAllLamps.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Context context = getBaseContext();

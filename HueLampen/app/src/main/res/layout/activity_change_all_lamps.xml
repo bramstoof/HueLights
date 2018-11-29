@@ -8,15 +8,15 @@
     tools:context=".Lamps">
 
     <Button
-        android:id="@+id/all_power"
+        android:id="@+id/allLamps_lampStatusColor"
         android:layout_width="64dp"
         android:layout_height="18dp"
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/LampStatusTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/allLamps_lampStatusOnOff_TextView" />
 
     <Button
-        android:id="@+id/all_back"
+        android:id="@+id/allLamp_back_button"
         android:layout_width="100dp"
         android:layout_height="45dp"
         android:layout_marginStart="8dp"
@@ -27,67 +27,67 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <SeekBar
-        android:id="@+id/seekBar_bir"
+        android:id="@+id/allLamps_seekBar_brightness"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView2"
+        app:layout_constraintBottom_toBottomOf="@+id/allLamps_brightness_Textview"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView2"
-        app:layout_constraintTop_toTopOf="@+id/textView2" />
+        app:layout_constraintStart_toEndOf="@+id/allLamps_brightness_Textview"
+        app:layout_constraintTop_toTopOf="@+id/allLamps_brightness_Textview" />
 
     <SeekBar
-        android:id="@+id/seekBar_sat"
+        android:id="@+id/allLamps_seekBar_saturation"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView3"
+        app:layout_constraintBottom_toBottomOf="@+id/allLamps_saturation_Textview"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView3"
-        app:layout_constraintTop_toTopOf="@+id/textView3" />
+        app:layout_constraintStart_toEndOf="@+id/allLamps_saturation_Textview"
+        app:layout_constraintTop_toTopOf="@+id/allLamps_saturation_Textview" />
 
     <SeekBar
-        android:id="@+id/seekBar_hue"
+        android:id="@+id/allLamps_seekBar_hueLampColor"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView5"
+        app:layout_constraintBottom_toBottomOf="@+id/allLamps_hueLampColor_Textview"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView5"
-        app:layout_constraintTop_toTopOf="@+id/textView5" />
+        app:layout_constraintStart_toEndOf="@+id/allLamps_hueLampColor_Textview"
+        app:layout_constraintTop_toTopOf="@+id/allLamps_hueLampColor_Textview" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/allLamps_brightness_Textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Bri:"
+        android:text="Brightness:"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/all_bri_value" />
+        app:layout_constraintTop_toBottomOf="@+id/allLamps_brightnessValue_TextView" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/allLamps_saturation_Textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Sat:"
-        app:layout_constraintStart_toStartOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/all_sat_value" />
+        android:text="Saturation:"
+        app:layout_constraintStart_toStartOf="@+id/allLamps_brightness_Textview"
+        app:layout_constraintTop_toBottomOf="@+id/allLamps_saturationValue_TextView" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/allLamps_hueLampColor_Textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Hue:"
-        app:layout_constraintStart_toStartOf="@+id/textView3"
-        app:layout_constraintTop_toBottomOf="@+id/all_hue_value" />
+        android:text="Lamp Color:"
+        app:layout_constraintStart_toStartOf="@+id/allLamps_saturation_Textview"
+        app:layout_constraintTop_toBottomOf="@+id/allLamps_hueColorValue_TextView" />
 
     <Button
-        android:id="@+id/all_change"
+        android:id="@+id/allLamps_ChangeLamp_Button"
         android:layout_width="0dp"
         android:layout_height="39dp"
         android:layout_marginStart="8dp"
@@ -96,51 +96,51 @@
         android:background="@color/LightGreyButtons"
         android:text="change"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/all_Color_Image"
-        app:layout_constraintTop_toTopOf="@+id/all_Color_Image" />
+        app:layout_constraintStart_toEndOf="@+id/allLamps_currentColor_Image"
+        app:layout_constraintTop_toTopOf="@+id/allLamps_currentColor_Image" />
 
     <TextView
-        android:id="@+id/all_sat_value"
+        android:id="@+id/allLamps_saturationValue_TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="TextView"
-        app:layout_constraintEnd_toEndOf="@+id/seekBar_sat"
-        app:layout_constraintStart_toStartOf="@+id/seekBar_sat"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintEnd_toEndOf="@+id/allLamps_seekBar_saturation"
+        app:layout_constraintStart_toStartOf="@+id/allLamps_seekBar_saturation"
+        app:layout_constraintTop_toBottomOf="@+id/allLamps_brightness_Textview" />
 
     <TextView
-        android:id="@+id/all_hue_value"
+        android:id="@+id/allLamps_hueColorValue_TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="TextView"
-        app:layout_constraintEnd_toEndOf="@+id/seekBar_hue"
-        app:layout_constraintStart_toStartOf="@+id/seekBar_hue"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintEnd_toEndOf="@+id/allLamps_seekBar_hueLampColor"
+        app:layout_constraintStart_toStartOf="@+id/allLamps_seekBar_hueLampColor"
+        app:layout_constraintTop_toBottomOf="@+id/allLamps_saturation_Textview" />
 
     <TextView
-        android:id="@+id/all_bri_value"
+        android:id="@+id/allLamps_brightnessValue_TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="TextView"
-        app:layout_constraintEnd_toEndOf="@+id/seekBar_bir"
-        app:layout_constraintStart_toStartOf="@+id/seekBar_bir"
-        app:layout_constraintTop_toBottomOf="@+id/all_back" />
+        app:layout_constraintEnd_toEndOf="@+id/allLamps_seekBar_brightness"
+        app:layout_constraintStart_toStartOf="@+id/allLamps_seekBar_brightness"
+        app:layout_constraintTop_toBottomOf="@+id/allLamp_back_button" />
 
     <ImageView
-        android:id="@+id/all_Color_Image"
+        android:id="@+id/allLamps_currentColor_Image"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        app:layout_constraintTop_toBottomOf="@+id/allLamps_hueLampColor_Textview"
         app:srcCompat="@android:drawable/presence_invisible" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/allLamps_lampStatus_Textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="36dp"
@@ -148,11 +148,11 @@
         android:textColor="@android:color/black"
         android:textColorLink="@color/LightGreyButtons"
         android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/LampStatusTextView"
-        app:layout_constraintTop_toTopOf="@+id/LampStatusTextView" />
+        app:layout_constraintEnd_toStartOf="@+id/allLamps_lampStatusOnOff_TextView"
+        app:layout_constraintTop_toTopOf="@+id/allLamps_lampStatusOnOff_TextView" />
 
     <TextView
-        android:id="@+id/LampStatusTextView"
+        android:id="@+id/allLamps_lampStatusOnOff_TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -160,15 +160,16 @@
         android:text="On"
         android:textColor="@android:color/black"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/all_power"
+        app:layout_constraintEnd_toEndOf="@+id/allLamps_lampStatusColor"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Switch
-        android:id="@+id/all_lampStatus_Switch"
+        android:id="@+id/allLamps_lampStatus_switch"
         android:layout_width="45dp"
         android:layout_height="18dp"
         android:layout_marginEnd="32dp"
         android:textColorLink="@color/LightGreyButtons"
-        app:layout_constraintEnd_toEndOf="@+id/textView6"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        app:layout_constraintEnd_toEndOf="@+id/allLamps_lampStatus_Textview"
+        app:layout_constraintTop_toBottomOf="@+id/allLamps_lampStatus_Textview" />
+
 </android.support.constraint.ConstraintLayout>

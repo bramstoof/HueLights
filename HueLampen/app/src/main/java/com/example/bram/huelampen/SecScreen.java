@@ -17,7 +17,7 @@ public class SecScreen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sec_screen);Bundle extras = getIntent().getExtras();
+        setContentView(R.layout.activity_change_one_lamp);Bundle extras = getIntent().getExtras();
         if(extras != null) {
             final Hue hue = (Hue) extras.getSerializable("hue");
             Koppeling koppeling = (Koppeling) extras.getSerializable("koppel");
@@ -26,27 +26,27 @@ public class SecScreen extends AppCompatActivity {
 
 
 
-            TextView id = findViewById(R.id.sec_id);
-            final Button power = findViewById(R.id.sec_bPower);
-            final SeekBar hueBar = findViewById(R.id.sec_bar_hue);
-            final TextView hueValue = findViewById(R.id.sec_hue_value);
-            final SeekBar satBar = findViewById(R.id.sec_bar_sat);
-            final TextView satValue = findViewById(R.id.sec_sat_value);
-            final SeekBar briBar = findViewById(R.id.sec_bar_bri);
-            final TextView briValue = findViewById(R.id.sec_bri_value);
-            final Button change = findViewById(R.id.sec_button_change);
-            final ImageView ColorImageButton = findViewById(R.id.sec_screen_Color_Image);
-            final Button back = findViewById(R.id.all_back);
+            TextView id = findViewById(R.id.lamp_ID_Value_TextView);
+            final Button power = findViewById(R.id.lamp_lampStatusColor);
+            final SeekBar hueBar = findViewById(R.id.lamp_HueColor_seekBar);
+            final TextView hueValue = findViewById(R.id.lamp_hueColorValue_TextView);
+            final SeekBar satBar = findViewById(R.id.lamp_saturation_seekBar);
+            final TextView satValue = findViewById(R.id.lamp_saturationValue_TextView);
+            final SeekBar briBar = findViewById(R.id.lamp_brightness_seekBar);
+            final TextView briValue = findViewById(R.id.lamp_brightnessValue_TextView);
+            final Button change = findViewById(R.id.lamp_changeColor_button);
+            final ImageView ColorImageButton = findViewById(R.id.lamp_currentColor_Image);
+            final Button back = findViewById(R.id.lamp_back_button);
             final TextView lampstatus = findViewById(R.id.lamp_Status_ON_OF);
             final Switch lampStatusSwitch = findViewById(R.id.lamp_switch);
 
 
 
-            ColorImageButton.setColorFilter(hue.getColor());
+            ColorImageButton.setColorFilter(hue.getHueColor());
 
-            hueValue.setText(Integer.toString(hue.getHue()));
-            briValue.setText(Integer.toString(hue.getBri()));
-            satValue.setText(Integer.toString(hue.getSat()));
+            hueValue.setText(Integer.toString(hue.getHueColorNumber()));
+            briValue.setText(Integer.toString(hue.getHueBrightness()));
+            satValue.setText(Integer.toString(hue.getHueSaturation()));
 
 
 
@@ -55,7 +55,7 @@ public class SecScreen extends AppCompatActivity {
                 @Override
                 public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
                     hueValue.setText(Integer.toString(seekBar.getProgress()));
-                    ColorImageButton.setColorFilter(hue.getColor(Float.valueOf(hueValue.getText().toString()),
+                    ColorImageButton.setColorFilter(hue.getHueColor(Float.valueOf(hueValue.getText().toString()),
                             Float.valueOf(satValue.getText().toString()),Float.valueOf(briValue.getText().toString())));
                 }
 
@@ -74,7 +74,7 @@ public class SecScreen extends AppCompatActivity {
                 @Override
                 public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
                     briValue.setText(Integer.toString(briBar.getProgress()));
-                    ColorImageButton.setColorFilter(hue.getColor(Float.valueOf(hueValue.getText().toString()),
+                    ColorImageButton.setColorFilter(hue.getHueColor(Float.valueOf(hueValue.getText().toString()),
                             Float.valueOf(satValue.getText().toString()), Float.valueOf(briValue.getText().toString())));
                 }
 
@@ -93,7 +93,7 @@ public class SecScreen extends AppCompatActivity {
                 @Override
                 public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
                     satValue.setText(Integer.toString(satBar.getProgress()));
-                    ColorImageButton.setColorFilter(hue.getColor(Float.valueOf(hueValue.getText().toString()),
+                    ColorImageButton.setColorFilter(hue.getHueColor(Float.valueOf(hueValue.getText().toString()),
                             Float.valueOf(satValue.getText().toString()),Float.valueOf(briValue.getText().toString())));
                 }
 
@@ -108,11 +108,11 @@ public class SecScreen extends AppCompatActivity {
                 }
             });
 
-            hueBar.setProgress(hue.getHue());
-            briBar.setProgress(hue.getBri());
-            satBar.setProgress(hue.getSat());
+            hueBar.setProgress(hue.getHueColorNumber());
+            briBar.setProgress(hue.getHueBrightness());
+            satBar.setProgress(hue.getHueSaturation());
 
-            if(hue.isOn()){
+            if(hue.isHueIsOn()){
                 lampstatus.setText("ON");
                 power.setBackgroundColor(Color.GREEN);
             }
@@ -142,15 +142,15 @@ public class SecScreen extends AppCompatActivity {
             lampStatusSwitch.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if(hue.isOn()){
+                    if(hue.isHueIsOn()){
                         request.turnLightOff(hue);
-                        hue.setOn(false);
+                        hue.setHueIsOn(false);
                         lampstatus.setText("OFF");
                         power.setBackgroundColor(Color.RED);
 
                     }else{
                         request.turnLightOn(hue);
-                        hue.setOn(true);
+                        hue.setHueIsOn(true);
                         lampstatus.setText("ON");
                         power.setBackgroundColor(Color.GREEN);
                     }

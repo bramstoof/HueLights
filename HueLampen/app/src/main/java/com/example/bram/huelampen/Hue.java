@@ -5,28 +5,28 @@ import android.graphics.Color;
 import java.io.Serializable;
 
 public class Hue implements Serializable {
-    private int id;
-    private boolean on;
-    private int bri;
-    private int hue;
-    private int sat;
+    private int hueID;
+    private boolean hueIsOn;
+    private int hueBrightness;
+    private int hueColorNumber;
+    private int hueSaturation;
 
-    public Hue(int id, boolean on, int bri, int hue, int sat) {
-        this.id = id;
-        this.on = on;
-        this.bri = bri;
-        this.hue = hue;
-        this.sat = sat;
+    public Hue(int id, boolean hueIsOn, int hueBrightness, int hueColorNumber, int hueSaturation) {
+        this.hueID = id;
+        this.hueIsOn = hueIsOn;
+        this.hueBrightness = hueBrightness;
+        this.hueColorNumber = hueColorNumber;
+        this.hueSaturation = hueSaturation;
     }
 
-    public int getColor(){
+    public int getHueColor(){
         float[] hsv = new float[3];
-        hsv[0] = (float)getHue()/182;
-        hsv[1] = (float)getSat()/254;
-        hsv[2] = (float)getBri()/200;
+        hsv[0] = (float) getHueColorNumber()/182;
+        hsv[1] = (float) getHueSaturation()/254;
+        hsv[2] = (float) getHueBrightness()/200;
         return Color.HSVToColor(hsv);
     }
-    public int getColor(float hue, float sat, float bri){
+    public int getHueColor(float hue, float sat, float bri){
         float[] hsv = new float[3];
         hsv[0] = hue/182;
         hsv[1] = sat/254;
@@ -35,42 +35,42 @@ public class Hue implements Serializable {
     }
 
     public int getId() {
-        return id;
+        return hueID;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.hueID = id;
     }
 
-    public boolean isOn() {
-        return on;
+    public boolean isHueIsOn() {
+        return hueIsOn;
     }
 
-    public void setOn(boolean on) {
-        this.on = on;
+    public void setHueIsOn(boolean hueIsOn) {
+        this.hueIsOn = hueIsOn;
     }
 
-    public int getBri() {
-        return bri;
+    public int getHueBrightness() {
+        return hueBrightness;
     }
 
-    public void setBri(int bri) {
-        this.bri = bri;
+    public void setHueBrightness(int hueBrightness) {
+        this.hueBrightness = hueBrightness;
     }
 
-    public int getHue() {
-        return hue;
+    public int getHueColorNumber() {
+        return hueColorNumber;
     }
 
-    public void setHue(int hue) {
-        this.hue = hue;
+    public void setHueColorNumber(int hueColorNumber) {
+        this.hueColorNumber = hueColorNumber;
     }
 
-    public int getSat() {
-        return sat;
+    public int getHueSaturation() {
+        return hueSaturation;
     }
 
-    public void setSat(int sat) {
-        this.sat = sat;
+    public void setHueSaturation(int hueSaturation) {
+        this.hueSaturation = hueSaturation;
     }
 }

@@ -2,10 +2,8 @@ package com.example.bram.huelampen;
 
 import android.content.Context;
 import android.content.Intent;
-import android.net.wifi.WifiManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.text.format.Formatter;
 import android.util.Log;
 
 import com.android.volley.AuthFailureError;
@@ -22,10 +20,6 @@ import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
-
-import static android.content.Context.WIFI_SERVICE;
 
 public class VolleyRequest implements  HueAdapter.onItemClickListener{
 
@@ -90,14 +84,14 @@ public class VolleyRequest implements  HueAdapter.onItemClickListener{
     {
         doRequest("{\"on\":true}","http://"+ koppeling.getIp() +"/api/"+ koppeling.getUsername() +
                 "/lights/" + hue.getId()+ "/state");
-        hue.setOn(true);
+        hue.setHueIsOn(true);
     }
 
     public void turnLightOff(Hue hue)
     {
         doRequest("{\"on\":false}","http://"+ koppeling.getIp() +"/api/"+ koppeling.getUsername() +
                 "/lights/" + hue.getId()+ "/state");
-        hue.setOn(false);
+        hue.setHueIsOn(false);
     }
 
     public void changeColler(Hue hueLight, int bri, int sat, int hue)
@@ -106,9 +100,9 @@ public class VolleyRequest implements  HueAdapter.onItemClickListener{
         doRequest(requestbody,"http://"+ koppeling.getIp() +"/api/"+ koppeling.getUsername() +
                 "/lights/" + hueLight.getId()+ "/state");
 
-        hueLight.setBri(bri);
-        hueLight.setHue(hue);
-        hueLight.setSat(sat);
+        hueLight.setHueBrightness(bri);
+        hueLight.setHueColorNumber(hue);
+        hueLight.setHueSaturation(sat);
     }
 
 

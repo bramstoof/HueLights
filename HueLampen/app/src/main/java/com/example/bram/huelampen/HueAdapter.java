@@ -1,14 +1,12 @@
 package com.example.bram.huelampen;
 
 import android.content.Context;
-import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -19,12 +17,12 @@ public class HueAdapter extends RecyclerView.Adapter<HueAdapter.Viewholder>{
 
     private static final String TAG = "HueAdapter";
 
-    private ArrayList<Hue> hueList;
+    private ArrayList<Hue> allHueLamps;
     private Context context;
     private onItemClickListener mListener;
 
-    public HueAdapter(ArrayList<Hue> hueList, Context context) {
-        this.hueList = hueList;
+    public HueAdapter(ArrayList<Hue> allHueLamps, Context context) {
+        this.allHueLamps = allHueLamps;
         this.context = context;
     }
 
@@ -46,10 +44,10 @@ public class HueAdapter extends RecyclerView.Adapter<HueAdapter.Viewholder>{
     @Override
     public void onBindViewHolder(Viewholder viewholder, final int i){
         Log.d(TAG, "onBlindViewHolder: called.");
-        Hue hue = hueList.get(i);
-        viewholder.ID.setText(Integer.toString(hue.getId()));
-        viewholder.LampColorImage.setColorFilter(hue.getColor());
-        if(hue.isOn())
+        Hue hueLamp = allHueLamps.get(i);
+        viewholder.ID.setText(Integer.toString(hueLamp.getId()));
+        viewholder.LampColorImage.setColorFilter(hueLamp.getHueColor());
+        if(hueLamp.isHueIsOn())
             viewholder.state.setText("ON");
         else
             viewholder.state.setText("OFF");
@@ -57,7 +55,7 @@ public class HueAdapter extends RecyclerView.Adapter<HueAdapter.Viewholder>{
 
     @Override
     public int getItemCount() {
-        return hueList.size();
+        return allHueLamps.size();
     }
 
     public class Viewholder extends RecyclerView.ViewHolder {
