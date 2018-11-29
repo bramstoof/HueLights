@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class Lamps extends AppCompatActivity {
+public class AllHueLamps extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -160,6 +160,14 @@ public class Lamps extends AppCompatActivity {
                 }
             });
         }
+    }
+
+    @Override
+    public void onBackPressed()
+    {
+        Context context = getBaseContext();
+        Intent intent = new Intent(context, MainActivity.class);
+        context.startActivity(intent);
     }
 }
 

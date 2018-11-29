@@ -208,7 +208,7 @@ public class VolleyRequest implements  HueAdapter.onItemClickListener{
     }
     @Override
     public void onItemClick(int position) {
-        Intent intent = new Intent(context, SecScreen.class);
+        Intent intent = new Intent(context, OneHueLamp.class);
         intent.putExtra("hue", hueList.get(position));
         intent.putExtra("koppel", koppeling);
         context.startActivity(intent);

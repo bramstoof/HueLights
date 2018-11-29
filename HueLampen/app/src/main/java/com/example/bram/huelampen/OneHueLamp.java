@@ -12,7 +12,7 @@ import android.widget.SeekBar;
 import android.widget.Switch;
 import android.widget.TextView;
 
-public class SecScreen extends AppCompatActivity {
+public class OneHueLamp extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +39,6 @@ public class SecScreen extends AppCompatActivity {
             final Button back = findViewById(R.id.lamp_back_button);
             final TextView lampstatus = findViewById(R.id.lamp_Status_ON_OF);
             final Switch lampStatusSwitch = findViewById(R.id.lamp_switch);
-
 
 
             ColorImageButton.setColorFilter(hue.getHueColor());
@@ -159,5 +158,13 @@ public class SecScreen extends AppCompatActivity {
 
         }
 
+    }
+
+    @Override
+    public void onBackPressed()
+    {
+        Context context = getBaseContext();
+        Intent intent = new Intent(context, MainActivity.class);
+        context.startActivity(intent);
     }
 }

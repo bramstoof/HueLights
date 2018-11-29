@@ -20,8 +20,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SecScreen" />
-        <activity android:name=".Lamps"></activity>
+        <activity android:name=".OneHueLamp" />
+        <activity android:name=".AllHueLamps"></activity>
     </application>
 
 </manifest>

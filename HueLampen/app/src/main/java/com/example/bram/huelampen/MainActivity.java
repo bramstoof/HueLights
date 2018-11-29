@@ -5,24 +5,8 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
-import android.view.Window;
 import android.widget.Button;
-
-import com.android.volley.AuthFailureError;
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
-
-import org.json.JSONArray;
-
-import java.io.UnsupportedEncodingException;
-import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -70,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Context context = getBaseContext();
-                Intent intent = new Intent(context, Lamps.class);
+                Intent intent = new Intent(context, AllHueLamps.class);
                 intent.putExtra("lamps", request.getHueList());
                 intent.putExtra("koppel", koppeling);
                 context.startActivity(intent);
