@@ -26,7 +26,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
-                android:text="Bri:"
+                android:text="@string/brightness"
                 android:textSize="24sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/lamp_brightnessValue_TextView" />
@@ -70,7 +70,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:background="@color/LightGreyButtons"
-                android:text="change"
+                android:text="@string/change"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/lamp_currentColor_Image"
                 app:layout_constraintTop_toTopOf="@+id/lamp_currentColor_Image" />
@@ -113,14 +113,14 @@
                 android:layout_marginEnd="8dp"
                 app:layout_constraintBottom_toBottomOf="@+id/lamp_brightnes_TextView"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/lamp_hueColor_TextView"
+                app:layout_constraintStart_toEndOf="@+id/lamp_brightnes_TextView"
                 app:layout_constraintTop_toTopOf="@+id/lamp_brightnes_TextView" />
 
             <TextView
                 android:id="@+id/lamp_Saturation_TextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Sat:"
+                android:text="@string/Saturation"
                 android:textSize="24sp"
                 app:layout_constraintStart_toStartOf="@+id/lamp_brightnes_TextView"
                 app:layout_constraintTop_toBottomOf="@+id/lamp_saturationValue_TextView" />
@@ -151,7 +151,7 @@
                 android:id="@+id/lamp_hueColor_TextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=" Hue:"
+                android:text="@string/Lamp_Color"
                 android:textSize="24sp"
                 app:layout_constraintStart_toStartOf="@+id/lamp_Saturation_TextView"
                 app:layout_constraintTop_toBottomOf="@+id/lamp_hueColorValue_TextView" />
@@ -170,7 +170,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="36dp"
-                android:text="Lamp status:"
+                android:text="@string/Lamps_Status"
                 android:textColor="@android:color/black"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toStartOf="@+id/lamp_Status_ON_OF"
@@ -204,7 +204,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:background="@color/LightGreyButtons"
-                android:text="Back"
+                android:text="@string/back"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 

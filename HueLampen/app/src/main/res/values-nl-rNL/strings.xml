@@ -3,4 +3,19 @@
     <string name="app_name">HueLampen</string>
     <string name="title_activity_all_lamps">alleLampen</string>
     <string name="change_all_lamps">Verander Alle Lampen</string>
+    <string name="back">Terug</string>
+    <string name="Lamps_Status">Lampen Status:</string>
+    <string name="brightness">Helderheid</string>
+    <string name="Saturation">Verzadiging</string>
+    <string name="Lamp_Color">Lamp kleur</string>
+    <string name="change">Veranderen</string>
+    <string name="Connect_To_Hue_device">Verbind met het Hue apparaat</string>
+    <string name="IPAdres">IP-Adres</string>
+    <string name="PortNumber">Poort nummer</string>
+    <string name="Connect">Verbind</string>
+    <string name="Settings">Instellingen</string>
+    <string name="Language">Taal</string>
+    <string name="Location">Plaats</string>
+    <string name="Save">Opslaan</string>
+    <string name="New_Location">Nieuwe Locatie</string>
 </resources>

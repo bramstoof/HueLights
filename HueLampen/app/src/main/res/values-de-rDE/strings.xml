@@ -2,4 +2,21 @@
 <resources>
     <string name="app_name">HueLamps</string>
     <string name="change_all_lamps">" Alle Lampen wechseln"</string>
+    <string name="app_name">HueLamps</string>
+    <string name="title_activity_all_lamps">allLamps</string>
+    <string name="back">Zurück</string>
+    <string name="Lamps_Status">Lampenstatus:</string>
+    <string name="brightness">Helligkeit</string>
+    <string name="Saturation">Sättigung</string>
+    <string name="Lamp_Color">Lampenfarbe</string>
+    <string name="change">Ändern</string>
+    <string name="Connect_To_Hue_device">Verbinden Sie sich mit dem Hue-Gerät</string>
+    <string name="IPAdres">IP-Adresse</string>
+    <string name="PortNumber">Portnummer</string>
+    <string name="Settings">Einstellungen</string>
+    <string name="Connect">Verbinden</string>
+    <string name="Language">Sprache</string>
+    <string name="Location">Platzieren</string>
+    <string name="Save">Speichern</string>
+    <string name="New_Location">Neuer Standort</string>
 </resources>
