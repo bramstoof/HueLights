@@ -2,13 +2,18 @@ package com.example.bram.huelampen;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
 
+import java.util.Locale;
+
 public class Settings extends AppCompatActivity {
+
+    SettingsInfo info;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +26,7 @@ public class Settings extends AppCompatActivity {
 
         Button save = findViewById(R.id.set_save);
 
-        final SettingsInfo info = new SettingsInfo(getBaseContext());
+        info = new SettingsInfo(getBaseContext());
 
         String langwitch = info.loadLangwitch();
 
@@ -40,26 +45,36 @@ public class Settings extends AppCompatActivity {
                 break;
         }
 
+
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(en.isChecked()) {
-                    info.saveLangwitch("en");
+                    chageLanguage("en");
                 }
                 else if(nl.isChecked()) {
-                    info.saveLangwitch("nl");
+                    chageLanguage("nl");
                 }
                 else if(de.isChecked()) {
-                    info.saveLangwitch("de");
+                    chageLanguage("de");
                 }
                 else if(fr.isChecked()) {
-                    info.saveLangwitch("fr");
+                    chageLanguage("fr");
                 }
-
+                recreate();
                 Context context = getBaseContext();
                 Intent intent = new Intent(context,MainActivity.class);
                 context.startActivity(intent);
             }
         });
+    }
+
+    private void chageLanguage(String lang){
+        info.saveLangwitch(lang);
+        Locale loc = new Locale(lang);
+        Locale.setDefault(new Locale(lang));
+        Configuration config = new Configuration();
+        config.locale = loc;
+        getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
     }
 }
