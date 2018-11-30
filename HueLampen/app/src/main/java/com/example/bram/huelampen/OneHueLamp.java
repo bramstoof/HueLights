@@ -118,7 +118,7 @@ public class OneHueLamp extends AppCompatActivity {
                 lampSwitch.setChecked(false);
                 lampStatusColor.setBackgroundColor(Color.RED);
             }
-            lampIdValue.setText(Integer.toString(hue.getId()));
+            lampIdValue.setText(hue.getName());
 
             backButton.setOnClickListener(new View.OnClickListener() {
                 @Override

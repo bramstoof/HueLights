@@ -20,4 +20,5 @@
     <string name="New_Location">Nieuwe Locatie</string>
     <string name="LampSort">Soort lamp:</string>
     <string name="LampName">Lampnaam:</string>
+    <string name="fragmentInfoText">" Voordat u op Verbinden drukt, moet u op de Link knop drukken. Na 30 seconden vervalt deze link."</string>
 </resources>

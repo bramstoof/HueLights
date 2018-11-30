@@ -131,7 +131,7 @@ public class VolleyRequest implements  HueAdapter.onItemClickListener{
                     Toast.makeText(context, "Username Saved", Toast.LENGTH_SHORT).show();
                 } catch (JSONException e) {
                     e.printStackTrace();
-                    Toast.makeText(context,"verkeerde ip address", Toast.LENGTH_SHORT);
+                    Toast.makeText(context,"verkeerde ip address", Toast.LENGTH_SHORT).show();
                 }
                 //koppeling = new Koppeling(ip,username);
                 //getLampsRequest();
@@ -171,7 +171,7 @@ public class VolleyRequest implements  HueAdapter.onItemClickListener{
             public void onResponse(String response) {
                 try {
                     JSONObject list = new JSONObject(response).getJSONObject("lights");
-                    for (int i = 0; i< list.length()+1;i++)
+                    for (int i = 0; i<= list.length()+1;i++)
                     {
                         String id = Integer.toString(i);
                         if(list.has(id)){

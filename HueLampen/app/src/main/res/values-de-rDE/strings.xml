@@ -20,4 +20,5 @@
     <string name="New_Location">Neuer Standort</string>
     <string name="LampSort">Lampentyp:</string>
     <string name="LampName">" Lampenname:"</string>
+    <string name="fragmentInfoText">Vergewissern Sie sich vor dem Drücken von connect, dass Sie die Link-Taste drücken. Nach 30 Sekunden läuft dieser Link ab.</string>
 </resources>

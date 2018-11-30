@@ -17,6 +17,7 @@
     <string name="Location">Location</string>
     <string name="Save">Save</string>
     <string name="New_Location">New Location</string>
-    <string name="LampSort">Lamp sort:</string>
     <string name="LampName">Lamp name:</string>
+    <string name="fragmentInfoText">Before pressing connect, make sure you press the Link button. After 30 seconds this Link expires.</string>
+    <string name="LampSort">Lamp sort:</string>
 </resources>

@@ -27,7 +27,7 @@ public class FragmentIP extends AppCompatDialogFragment {
         View view = inflater.inflate(R.layout.fragment_simulation_ip, null);
 
         builder.setView(view)
-                .setTitle("ip")
+                .setTitle("New connection")
                 .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {

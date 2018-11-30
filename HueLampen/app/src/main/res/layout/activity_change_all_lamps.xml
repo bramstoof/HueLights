@@ -31,42 +31,43 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/allLamps_brightness_Textview"
+        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/allLamps_brightness_Textview"
-        app:layout_constraintTop_toTopOf="@+id/allLamps_brightness_Textview" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/allLamps_brightness_Textview" />
 
     <SeekBar
         android:id="@+id/allLamps_seekBar_saturation"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/allLamps_saturation_Textview"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/allLamps_saturation_Textview"
-        app:layout_constraintTop_toTopOf="@+id/allLamps_saturation_Textview" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/allLamps_saturation_Textview" />
 
     <SeekBar
         android:id="@+id/allLamps_seekBar_hueLampColor"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/allLamps_hueLampColor_Textview"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/allLamps_hueLampColor_Textview"
-        app:layout_constraintTop_toTopOf="@+id/allLamps_hueLampColor_Textview" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/allLamps_hueLampColor_Textview" />
 
     <TextView
         android:id="@+id/allLamps_brightness_Textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:text="@string/brightness"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/allLamps_brightnessValue_TextView" />
+        app:layout_constraintTop_toBottomOf="@+id/allLamps_lampStatus_switch" />
 
     <TextView
         android:id="@+id/allLamps_saturation_Textview"
@@ -74,8 +75,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="@string/Saturation"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="@+id/allLamps_brightness_Textview"
-        app:layout_constraintTop_toBottomOf="@+id/allLamps_saturationValue_TextView" />
+        app:layout_constraintTop_toBottomOf="@+id/allLamps_seekBar_brightness" />
 
     <TextView
         android:id="@+id/allLamps_hueLampColor_Textview"
@@ -83,8 +85,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="@string/Lamp_Color"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="@+id/allLamps_saturation_Textview"
-        app:layout_constraintTop_toBottomOf="@+id/allLamps_hueColorValue_TextView" />
+        app:layout_constraintTop_toBottomOf="@+id/allLamps_seekBar_saturation" />
 
     <Button
         android:id="@+id/allLamps_ChangeLamp_Button"
@@ -103,31 +106,30 @@
         android:id="@+id/allLamps_saturationValue_TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/allLamps_saturation_Textview"
         app:layout_constraintEnd_toEndOf="@+id/allLamps_seekBar_saturation"
-        app:layout_constraintStart_toStartOf="@+id/allLamps_seekBar_saturation"
-        app:layout_constraintTop_toBottomOf="@+id/allLamps_brightness_Textview" />
+        app:layout_constraintTop_toTopOf="@+id/allLamps_saturation_Textview" />
 
     <TextView
         android:id="@+id/allLamps_hueColorValue_TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
         android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/allLamps_hueLampColor_Textview"
         app:layout_constraintEnd_toEndOf="@+id/allLamps_seekBar_hueLampColor"
-        app:layout_constraintStart_toStartOf="@+id/allLamps_seekBar_hueLampColor"
-        app:layout_constraintTop_toBottomOf="@+id/allLamps_saturation_Textview" />
+        app:layout_constraintTop_toTopOf="@+id/allLamps_hueLampColor_Textview" />
 
     <TextView
         android:id="@+id/allLamps_brightnessValue_TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
         android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/allLamps_brightness_Textview"
         app:layout_constraintEnd_toEndOf="@+id/allLamps_seekBar_brightness"
-        app:layout_constraintStart_toStartOf="@+id/allLamps_seekBar_brightness"
-        app:layout_constraintTop_toBottomOf="@+id/allLamp_back_button" />
+        app:layout_constraintTop_toTopOf="@+id/allLamps_brightness_Textview" />
 
     <ImageView
         android:id="@+id/allLamps_currentColor_Image"
@@ -136,7 +138,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/allLamps_hueLampColor_Textview"
+        app:layout_constraintTop_toBottomOf="@+id/allLamps_seekBar_hueLampColor"
         app:srcCompat="@android:drawable/presence_invisible" />
 
     <TextView

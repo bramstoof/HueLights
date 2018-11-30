@@ -2,12 +2,15 @@ package com.example.bram.huelampen;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         Button changeAllLamps = findViewById(R.id.main_all);
         Button settings = findViewById(R.id.main_settings);
         SettingsInfo info = new SettingsInfo(this);
+        chageLanguage(info.loadLangwitch());
         String ip = info.loadLocationIP();
         String user = info.loadLocationName();
         if(ip=="" || user == ""){
@@ -89,5 +93,12 @@ public class MainActivity extends AppCompatActivity {
         //request = new VolleyRequest(koppeling,this,(RecyclerView) findViewById(R.id.RecyclerView_MainScreen));     //local
 
 
+    }
+    private void chageLanguage(String lang){
+        Locale loc = new Locale(lang);
+        Locale.setDefault(new Locale(lang));
+        Configuration config = new Configuration();
+        config.locale = loc;
+        getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
     }
 }
