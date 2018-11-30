@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -12,7 +13,7 @@ import android.widget.RadioButton;
 
 import java.util.Locale;
 
-public class Settings extends AppCompatActivity {
+public class Settings extends AppCompatActivity implements FragmentIP.FragmentListener {
 
     SettingsInfo info;
 
@@ -26,7 +27,7 @@ public class Settings extends AppCompatActivity {
         final RadioButton fr = findViewById(R.id.set_fr);
         RadioButton bramHome = findViewById(R.id.set_BramHome);
         RadioButton school = findViewById(R.id.set_school);
-        RadioButton simulation = findViewById(R.id.set_simulation);
+        final RadioButton simulation = findViewById(R.id.set_simulation);
 
 
 
@@ -41,8 +42,9 @@ public class Settings extends AppCompatActivity {
             bramHome.setChecked(true);
         else if(ip == "145.48.205.33")
             school.setChecked(true);
-        else if(ip == "192.168.0.101:81")
+        else
             simulation.setChecked(true);
+
 
         simulation.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -95,9 +97,8 @@ public class Settings extends AppCompatActivity {
         setIP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Context context = getBaseContext();
-                Intent intent = new Intent(context,activity_connect_to_lamps.class);
-                context.startActivity(intent);
+                FragmentIP fragmentIP = new FragmentIP();
+                fragmentIP.show(getSupportFragmentManager(),"getIp");
             }
         });
         save.setOnClickListener(new View.OnClickListener() {
@@ -130,5 +131,10 @@ public class Settings extends AppCompatActivity {
         Configuration config = new Configuration();
         config.locale = loc;
         getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
+    }
+
+    @Override
+    public void applyIP(String ip, String Port) {
+        final VolleyRequest volleyRequest = new VolleyRequest(getBaseContext(),ip +":"+Port);
     }
 }

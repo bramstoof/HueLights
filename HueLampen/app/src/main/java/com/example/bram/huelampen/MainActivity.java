@@ -65,11 +65,15 @@ public class MainActivity extends AppCompatActivity {
         changeAllLamps.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Context context = getBaseContext();
-                Intent intent = new Intent(context, AllHueLamps.class);
-                intent.putExtra("lamps", request.getHueList());
-                intent.putExtra("koppel", koppeling);
-                context.startActivity(intent);
+                if (request.getHueList().size() != 0) {
+                    Context context = getBaseContext();
+                    Intent intent = new Intent(context, AllHueLamps.class);
+                    intent.putExtra("lamps", request.getHueList());
+                    intent.putExtra("koppel", koppeling);
+                    context.startActivity(intent);
+                }else{
+                    Toast.makeText(getBaseContext(),"No lamps connected",Toast.LENGTH_SHORT).show();
+                }
             }
         });
 

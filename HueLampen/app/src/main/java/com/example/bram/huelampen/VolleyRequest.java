@@ -49,6 +49,11 @@ public class VolleyRequest implements  HueAdapter.onItemClickListener{
         getUsername(ip);
     }
 
+    public VolleyRequest(Context context, String ip) {
+        this.context = context;
+        getUsername(ip);
+    }
+
     private void doRequest(final String requestBody, String url)
     {
         //final String requestBody  = "{\"on\":true}";
