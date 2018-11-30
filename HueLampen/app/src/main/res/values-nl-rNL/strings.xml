@@ -18,4 +18,6 @@
     <string name="Location">Plaats</string>
     <string name="Save">Opslaan</string>
     <string name="New_Location">Nieuwe Locatie</string>
+    <string name="LampSort">Soort lamp:</string>
+    <string name="LampName">Lampnaam:</string>
 </resources>

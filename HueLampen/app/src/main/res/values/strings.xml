@@ -17,4 +17,6 @@
     <string name="Location">Location</string>
     <string name="Save">Save</string>
     <string name="New_Location">New Location</string>
+    <string name="LampSort">Lamp sort:</string>
+    <string name="LampName">Lamp name:</string>
 </resources>

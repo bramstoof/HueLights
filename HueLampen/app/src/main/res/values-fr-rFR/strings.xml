@@ -18,4 +18,6 @@
     <string name="Location">Endroit</string>
     <string name="Save">Enregistrer</string>
     <string name="New_Location">Nouveau lieu</string>
+    <string name="LampSort">Type de lampe:</string>
+    <string name="LampName">Nom de la lampe:</string>
 </resources>
