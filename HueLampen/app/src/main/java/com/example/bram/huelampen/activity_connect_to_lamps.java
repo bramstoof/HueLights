@@ -24,7 +24,9 @@ public class activity_connect_to_lamps extends AppCompatActivity {
         request.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final VolleyRequest volleyRequest = new VolleyRequest(getBaseContext(), ip.getText().toString() +":"+ port.getText().toString(),(RecyclerView) findViewById(R.id.RecyclerView_MainScreen));
+                String ipaddress = ip.getText().toString() +":"+ port.getText().toString();
+
+                final VolleyRequest volleyRequest = new VolleyRequest(getBaseContext(),ipaddress,(RecyclerView) findViewById(R.id.RecyclerView_MainScreen));
             }
         });
 

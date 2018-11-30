@@ -121,14 +121,15 @@ public class VolleyRequest implements  HueAdapter.onItemClickListener{
                     JSONObject object = (JSONObject) array.get(0);
                     username = object.getJSONObject("success").getString("username");
                     SettingsInfo info = new SettingsInfo(context);
+                    info.saveLocationIP(ip);
                     info.saveLocationName(username);
                     Toast.makeText(context, "Username Saved", Toast.LENGTH_SHORT).show();
                 } catch (JSONException e) {
                     e.printStackTrace();
                     Toast.makeText(context,"verkeerde ip address", Toast.LENGTH_SHORT);
                 }
-                koppeling = new Koppeling(ip,username);
-                getLampsRequest();
+                //koppeling = new Koppeling(ip,username);
+                //getLampsRequest();
             }
         }, new Response.ErrorListener() {
             @Override
