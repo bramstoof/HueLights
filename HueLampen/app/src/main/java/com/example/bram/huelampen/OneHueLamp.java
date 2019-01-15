@@ -17,9 +17,10 @@ public class OneHueLamp extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_change_one_lamp);Bundle extras = getIntent().getExtras();
-        if(extras != null)
-        {
+        setContentView(R.layout.activity_change_one_lamp);
+        Bundle extras = getIntent().getExtras();
+            if(extras != null)
+            {
             final Hue hue = (Hue) extras.getSerializable("hue");
             final Koppeling koppeling = (Koppeling) extras.getSerializable("koppel");
             final VolleyRequest volleyRequest = new VolleyRequest(koppeling, this);
